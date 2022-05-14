@@ -1,0 +1,49 @@
+Algoritmo "Algoritmo para Averiguar Números Primos e sua Soma"
+
+Var
+x,i,n,p,s,ind,indice,indice2,temp: inteiro
+v: vetor [1..100] de inteiro
+
+Inicio
+escreva ("Digite um valor até 500: ")
+
+leia (n)
+
+s<-0
+ind<-0
+
+para x de 1 ate n faca
+
+     p<-0
+         para i de 1 ate x faca
+              se (x mod i=0) entao
+                 p<-p+1
+              fimse
+         fimpara
+
+     se (p=2) entao
+        ind<-ind+1
+        v[ind]<-x
+        s<-s+x
+     fimse
+
+fimpara
+
+para indice de 1 ate ind-1 faca
+      para indice2 de indice+1 ate ind faca
+         se v[indice] < v[indice2] entao
+            temp <- v[indice]
+            v[indice] <- v[indice2]
+            v[indice2] <- temp
+         fimSe
+      fimPara
+fimPara
+
+para indice de 1 ate ind faca
+     escreval ("O número",(v[indice])," é primo.")
+fimPara
+
+escreval ("A soma de todos os números primos menores iguais a",n, " é:",s)
+
+
+Fimalgoritmo
